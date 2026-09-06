@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f9; /* Very light base gray */
+        }
+
+        /* 
+         * The blobs are large, absolute-positioned elements 
+         * with an extreme blur filter to create a fluid mesh effect.
+         */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.8;
+            will-change: transform;
+        }
+
+        /* Pure white blob */
+        .blob-1 {
+            width: 70vw;
+            height: 70vw;
+            top: -20vh;
+            left: -10vw;
+            background-color: #ffffff;
+            animation: float1 25s infinite ease-in-out alternate;
+        }
+
+        /* Light subtle gray blob */
+        .blob-2 {
+            width: 80vw;
+            height: 80vw;
+            bottom: -30vh;
+            right: -10vw;
+            background-color: #e8e8eb;
+            animation: float2 30s infinite ease-in-out alternate-reverse;
+        }
+
+        /* Another very soft off-white/gray blob */
+        .blob-3 {
+            width: 60vw;
+            height: 60vw;
+            top: 20vh;
+            left: 20vw;
+            background-color: #ededf0;
+            animation: float3 28s infinite ease-in-out alternate;
+        }
+
+        @keyframes float1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(15vw, 15vh) scale(1.1); }
+            66% { transform: translate(-5vw, 25vh) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes float2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20vw, -15vh) scale(1.15); }
+            66% { transform: translate(10vw, -25vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes float3 {
+            0% { transform: translate(0, 0) scale(0.9); }
+            50% { transform: translate(25vw, -10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(0.9); }
+        }
+
+        /* Soft fade-in for the text content */
+        .fade-in-text {
+            opacity: 0;
+            animation: fadeInText 4s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Ensures blobs are scaled properly on very large/small screens */
+        @media (max-width: 768px) {
+            .blob {
+                filter: blur(80px);
+            }
+            .blob-1 { width: 100vw; height: 100vh; }
+            .blob-2 { width: 120vw; height: 120vh; }
+            .blob-3 { width: 90vw; height: 90vh; }
+        }
+    </style>
+</head>
+
+<body class="w-screen h-screen overflow-hidden m-0 flex items-center justify-center relative">
+    
+    <!-- Background Animated Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Foreground Content -->
+    <div class="relative z-10 fade-in-text px-6">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-[0.2em] md:tracking-[0.3em] text-[#3a3a3c] uppercase text-center ml-[0.2em] md:ml-[0.3em]">
+            Coming Soon
+        </h1>
+    </div>
+
+</body>
+</html>
